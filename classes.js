@@ -66,10 +66,10 @@ class GravityObject extends Dynamic {
         // integrate latent movement vars
         this.vel.x += this.acc.x;
         this.vel.y += this.acc.y;
-        this.vel.x *= 0.95; // friction
+        this.vel.x *= (friction/100); // friction
         if (Math.abs(this.vel.x) < 0.01) this.vel.x = 0;
-        this.pos.x += this.vel.x*0.01;
-        this.pos.y += this.vel.y*0.01;
+        this.pos.x += this.vel.x*(vel_factor/100);
+        this.pos.y += this.vel.y*(vel_factor/100);
     }
 }
 
@@ -107,11 +107,11 @@ class Bullet extends GravityObject {
     constructor(pipe, strength, ind) {
         super({x: pipe.coords[1].x, y: pipe.coords[1].y});
         this.pipe = pipe;
-        this.strength = strength*35;
+        this.strength = strength*str_factor;
         this.init_vel = len_dir_to_vec(this.strength, this.pipe.rad);
         this.vel = {x: this.init_vel.x, y: this.init_vel.y};
         this.ind = ind;
-        this.radius = 20;
+        this.radius = 10;
     }
     render() {
         draw_circ(this.pos, this.radius, true, "grey");
@@ -148,7 +148,7 @@ class Player extends GravityObject {
         this.pos = pos;
         this.color_part = color_part;
         this.color = set_color_opacity(color_part, 1);
-        this.radius = 150;
+        this.radius = 30;
         this.pipe = new Pipe(this);
         this.pressed_fire_prev = false;
         this.pressed_fire = false;

@@ -2,6 +2,10 @@
 var center_coord = {x: canv_w/2, y: canv_h/2};
 var gravity = 30;
 var n_simulation_steps = 1;
+// debug version:
+var friction = 0.95;
+var vel_factor = 0.05;
+var str_factor = 35;
 
 function sort_nums(a, b) {
     return a - b;

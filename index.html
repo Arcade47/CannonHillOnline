@@ -3,7 +3,14 @@
         <meta charset="utf-8"/>
     </head>
     <body>
-        <canvas id="GameCanvas"></canvas>
+        <canvas id="GameCanvas" ></canvas>
+        <br><br><br>
+        FREILASSEN! <input type="number" id="test" value="0"> <br>
+        Gravity (~ between 1 and 50):                <input type="number" id="grav" value="30"> <br>
+        FREILASSEN! <input type="number" id="test" value="0"> <br>
+        Friction (%):               <input type="number" id="fric" value="95"> <br>
+        Velocity Factor (%):        <input type="number" id="velf" value="5"> <br>
+        Strength Factor (~ between 1 and 50):        <input type="number" id="strf" value="35"> <br>
         <!-- accessing canvas and store draw functions -->
         <script src="draw.js"></script>
         <!-- diverse functions, geometry related etc. ... rather global, not in classes -->
@@ -12,5 +19,6 @@
         <script src="classes.js"></script>
         <!-- global render and update functions, init of objects -->
         <script src="hub.js"></script>
+        <!-- name="lname" -->
     </body>
 </html>

@@ -1,0 +1,30 @@
+cannon hill:
+
+- 2D seitenansicht
+- realtime --> jeder spieler ist gleichzeitig dran
+- gewisse gemeinsamkeiten mit worms
+    unterschiede:
+    - man kann sich nicht bewegen
+    - real-time
+    - ...
+- ballistik
+- items vom himmel: einsammeln durch treffen mit kugel
+    > neue waffen/gesundheit...
+- zerstörbarkeit der umwelt (PIXELKOLLISIONEN??!!)
+- vor jeder runde: einstellungen (einkaufen)
+- 
+
+- spielerinput:
+> winkeleinstellung (L R)
+> init geschoss UND schussstärke: U
+> waffen auswählen
+
+
+- zerstörbare landschaft: logik:
+> berechnung der oberflächenlinie in jedem frame
+> wenn kollision von geschoss mit linie
+    --> "pixel-kollisionen"
+
+collision resolution
+- n simulation steps per frame
+- 

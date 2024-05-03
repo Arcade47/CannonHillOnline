@@ -11,8 +11,10 @@ var larger_dim;
 var prev_orient;
 
 var canvas = document.getElementById("GameCanvas");
-canvas.width = 1064;
-canvas.height = 1064;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight*0.5;
+canv_w = window.innerWidth;
+canv_h = window.innerHeight*0.5;
 var ctx = canvas.getContext("2d");
 
 // init_initial_ctx_dims
@@ -30,6 +32,7 @@ function reset_ctx_dims() {
     larger_dim  = Math.max(canv_w, canv_h);
 }
 
+/*
 function resize() {
     // keep ratio of 1920:1080
     canvas.width = window.innerWidth;
@@ -61,9 +64,10 @@ function resize() {
     }
 	ctx.setTransform(current_scale, 0, 0, current_scale, current_translate.x, current_translate.y);
 }
+*/
 
 // call resize once, then set the fixed canv_w, canv_h again
-resize();
+// resize();
 
 
 
@@ -102,7 +106,7 @@ function draw_line(color, coords) {
     ctx.moveTo(coords[0].x, coords[0].y);
     ctx.lineTo(coords[1].x, coords[1].y);
     ctx.strokeStyle = color;
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 4;
     ctx.stroke();
     ctx.closePath();
 }

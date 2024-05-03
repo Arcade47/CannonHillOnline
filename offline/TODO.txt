@@ -1,0 +1,57 @@
+handle browser resizing: --> add scale factor
+- fixed: ratio of 16:9 (PAL (?) bars (vertically/horizontally else))
+- width is always equal to browser width --> no vertical bars?
+
+how apply scaling factor?
+- object locations are in virtual space (16:9?)
+- virtual space get applied based on current screen size
+- make sure that pointing with mouse on screen is translated to virtual space as well
+(for later: apply camera offset (virtual space is larger than actual screen))
+
+TODO add translation (can be done later)
+
+collisions
+    proj<->landscape
+
+how access the player? kinda related to network play later --> for now only have first player in list be your player
+
+bunker size depends on initial browser dims --> adjust!
+
+removing players when dead
+    would be cool if upon death it reintegrates with pixelated landscape
+
+
+----
+LANDSCAPE (skull emoji here)
+problems:
+- landscape seems like consisting of individual pixels --> not possible considering computational efficiency
+- still landscape has initial "texture" that changes upon impacts and stays like this
+- also pixels slide back e.g. a slope also when it is not interacting with projs (i.e. dynamic pixel-pixel interactions)
+
+solution:
+- only consider small areas that are about to change
+    > impact of bullet with line of landscape surface
+
+TODO:
+- function that transforms landscape surface pixels to surface line
+- precalculate impact region and time point of impact --> "activate" pixels
+    (is this really necessary? prob not - just activate pixels upon bullet traj <-> surface line intersection)
+
+
+other option: pixel collisions; to read:
+"Cellular Automata for Physical Modeling"
+https://tomforsyth1000.github.io/papers/cellular_automata_for_physical_modelling.html
+----
+
+
+
+CURRENTLY
+
+issues with terrain collision:
+    - when high speed: proj often slips through
+        - idea: extend bounding box to the floor
+    - sometimes strange movement of proj along pipe in the beginning
+
+
+tests:
+- make simulation steps

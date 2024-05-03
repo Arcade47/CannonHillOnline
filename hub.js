@@ -23,12 +23,21 @@ for (let index = 0; index < 100; index++) {
 */
 
 // test: add half circle to static obj
-players.push(new Player({x: 150, y: 500}, "rgba(255,0,0,"));
-players.push(new Player({x: 700, y: 1200}, "rgba(0,0,255,"));
+players.push(new Player(center_coord, "rgba(255,0,0,"));
+// players.push(new Player({x: 700, y: 1200}, "rgba(0,0,255,"));
 
 // global functions
 
 function update() {
+    // debug
+    // read out and set physics values from user input
+    gravity =       document.getElementById("grav").value;
+    vel_factor =    document.getElementById("velf").value;
+    str_factor =    document.getElementById("strf").value;
+    friction =      document.getElementById("fric").value;
+
+    console.log(gravity)
+
     for (let index = 0; index < dynamic_obj.length; index++) {
         const dyn_o = dynamic_obj[index];
         dyn_o.update();
